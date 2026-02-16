@@ -1,6 +1,6 @@
 ---
 mode: 'agent'
-model: 'GPT-5'
+model: 'GPT-5.2'
 tools: ['microsoft_docs_search', 'microsoft_docs_fetch']
 description: 'Microsoft Docs First agent: always ground answers in official Microsoft documentation via the Microsoft Docs MCP server. Covers Azure, Microsoft Security, and broader Microsoft technologies.'
 ---

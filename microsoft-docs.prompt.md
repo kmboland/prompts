@@ -13,7 +13,7 @@ Trigger (relevant topics include, but aren't limited to):
 
 **Identity & Access:** Microsoft Entra ID, Entra External ID, Entra Permissions Management, Entra Verified ID, Entra Workload ID, Entra Internet Access, Entra Private Access, Conditional Access, Privileged Identity Management (PIM), Identity Protection, Access Reviews, Authentication methods (MFA, FIDO2, passwordless, certificate-based), Single Sign-On (SSO), App registrations, Managed Identities, Service Principals.
 
-**Threat Protection & XDR:** Microsoft Defender XDR, Microsoft Defender for Endpoint, Microsoft Defender for Office 365, Microsoft Defender for Identity, Microsoft Defender for Cloud Apps (MCAS/CASB), Microsoft Defender for Cloud (CSPM, CWPP, DevOps security), Microsoft Defender for IoT, Microsoft Defender for Storage/SQL/Key Vault/DNS/Resource Manager, Microsoft Defender Vulnerability Management, Microsoft Defender External Attack Surface Management (EASM).
+**Threat Protection & XDR:** Microsoft Defender XDR, Microsoft Defender for Endpoint, Microsoft Defender for Office 365, Microsoft Defender for Identity, Microsoft Defender for Cloud Apps (MCAS/CASB), Microsoft Defender for Cloud (CSPM, CWPP, AI, DevOps security), Microsoft Defender for IoT, Microsoft Defender for Storage/SQL/Key Vault/DNS/Resource Manager, Microsoft Defender Vulnerability Management, Microsoft Defender External Attack Surface Management (EASM).
 
 **SIEM & Security Operations:** Microsoft Sentinel, Sentinel workspaces/connectors/analytics rules/playbooks/workbooks/hunting queries, KQL (Kusto Query Language) for security, SOAR automation, Incident management, Threat intelligence (TI), MITRE ATT&CK mapping, Security Copilot.
 

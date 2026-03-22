@@ -1,0 +1,52 @@
+//KQL — Identify alert types and providers in your workspace:
+SecurityAlert
+| where TimeGenerated > ago(7d)
+| summarize 
+    AlertCount = count(),
+    Earliest = min(TimeGenerated),
+    Latest = max(TimeGenerated)
+    by AlertName, ProviderName, ProductName, AlertType
+| order by AlertCount desc
+
+
+// Run in Defender Portal Advanced Hunting
+AlertInfo
+| where Timestamp > ago(7d)
+| where ServiceSource == "Microsoft Sentinel"
+| summarize count() by ServiceSource, Category, Severity
+| order by count_ desc
+//If this returns 0 rows for ServiceSource == "Microsoft Sentinel" but you can see alerts in the Sentinel workspace, there is a genuine sync issue between the workspace and the //Defender portal.
+
+//Cross-check alert counts between schemas:
+
+// Run in Defender Portal Advanced Hunting
+AlertInfo
+| where Timestamp > ago(7d)
+| summarize 
+    TotalAlerts = count(),
+    SentinelAlerts = countif(ServiceSource == "Microsoft Sentinel"),
+    DefenderAlerts = countif(ServiceSource != "Microsoft Sentinel")
+| project TotalAlerts, SentinelAlerts, DefenderAlerts
+
+//KQL — Find the exact onboarding timestamp by checking when Defender portal incidents first appeared:
+
+SecurityIncident
+| where TimeGenerated > ago(30d)
+| where Labels has "Defender" or Comments has "Defender"
+| summarize FirstSeen = min(TimeGenerated)
+
+
+//KQL — Check alert volume before vs after expected onboarding date:
+
+// Replace <OnboardingDate> with your actual onboarding date
+SecurityAlert
+| where TimeGenerated > ago(30d)
+| summarize 
+    count() 
+    by bin(TimeGenerated, 1d)
+| order by TimeGenerated asc
+
+// If this returns data, the workspace connection is fine for this user
+SecurityAlert
+| take 10
+| project TimeGenerated, AlertName, AlertSeverity
